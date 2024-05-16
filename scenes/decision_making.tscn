@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8yqqxef38ox0"]
 
-[ext_resource type="Script" path="res://decision_making.gd" id="1_q2ajv"]
+[ext_resource type="Script" path="res://scripts/decision_making.gd" id="1_q2ajv"]
 
 [node name="DecisionMaking" type="PopupPanel"]
 size = Vector2i(600, 400)
@@ -29,6 +29,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/PolicyList/PolicyCard"]
+layout_mode = 2
+text = "Choose
+"
+
 [node name="PolicyTitle" type="Label" parent="VBoxContainer/PolicyList/PolicyCard"]
 layout_mode = 2
 text = "Policy Title
@@ -39,11 +44,6 @@ layout_mode = 2
 text = "Policy Description
 "
 fit_content = true
-
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/PolicyList/PolicyCard"]
-layout_mode = 2
-text = "Choose
-"
 
 [node name="ApplyButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
