@@ -17,6 +17,8 @@ func on_state_changed() -> void:
 	year_label.text = str(CityState.current_year)
 	money_label.text = "$" + str(CityState.budget)
 	roi_label.text = "ROI: $" + str(CityState.roi)
+	var progress := CityState.get_progress()
+	%ReductionProgressLabel.text = "Emission Reduction Progress: " + str(round((1.0 - progress) * 100)) + "% / " + str(pledge * 100) + "%"
 
 func _on_next_year_button_pressed() -> void:
 	CityState.current_year += 1
