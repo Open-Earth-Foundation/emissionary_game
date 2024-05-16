@@ -3,11 +3,6 @@ extends PopupPanel
 @onready var policyList = $VBoxContainer/PolicyList
 @onready var policyCard = $VBoxContainer/PolicyList/PolicyCard
 
-# Called when the node enters the scene tree for the first time.
-
-func _ready():
-	pass
-
 func newPolicies(year):
 	var policies = choose_policies(Policies.available)
 	var seenOnce = false
@@ -27,10 +22,6 @@ func newPolicies(year):
 		newCard.get_node('PolicyPropertiesContainer/PolicyROIContainer/PolicyROI').text = "$" + str(policy['roi'])
 		newCard.set_meta("policy", policy)
 	show()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _on_apply_button_pressed():
 	for policy_card in policyList.get_children():
