@@ -49,9 +49,6 @@ color = Color(0.247059, 0.486275, 0.713726, 1)
 position = Vector2(570, 354)
 texture = ExtResource("2_fvheh")
 
-[node name="DecisionMaking" parent="." instance=ExtResource("3_s4f7i")]
-visible = false
-
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(313, 224)
 amount = 16
@@ -126,7 +123,7 @@ size = Vector2i(572, 276)
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 568.0
-offset_bottom = 272.0
+offset_bottom = 293.0
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -151,6 +148,10 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture_normal = ExtResource("3_ghmfm")
+
+[node name="DecisionMaking" parent="UI" instance=ExtResource("3_s4f7i")]
+unique_name_in_owner = true
+visible = false
 
 [node name="GameOverOverlay" type="ColorRect" parent="UI"]
 unique_name_in_owner = true
