@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5d84ivbem21y"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_14vgt"]
+[ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_cwgn6"]
+
+[sub_resource type="Gradient" id="Gradient_xxgvv"]
+colors = PackedColorArray(0.496902, 0.00134737, 0.676381, 1, 1, 0.393437, 0.0713637, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_57k0e"]
+frequency = 0.0045
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_71bht"]
+width = 1024
+height = 1024
+seamless = true
+color_ramp = SubResource("Gradient_xxgvv")
+noise = SubResource("FastNoiseLite_57k0e")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hg0lh"]
+shader = ExtResource("1_cwgn6")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_71bht")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_14vgt")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hg0lh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Emissionary"
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
