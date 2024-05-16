@@ -20,9 +20,13 @@ func newPolicies(year):
 		newCard.get_node('PolicyDescription').text = policy['description']
 		newCard.get_node('PolicySectorContainer/PolicySector').text = policy['sector']
 		newCard.get_node('PolicyImpactContainer/PolicyImpact').text = str(policy['emission reduction']) + "t CO2eq"
-		newCard.get_node('PolicyPropertiesContainer/PolicyCostContainer/PolicyCost').text = "$" + str(policy['cost'])
+		var cost := int(policy['cost'])
+		newCard.get_node('PolicyPropertiesContainer/PolicyCostContainer/PolicyCost').text = "$" + str(cost)
 		newCard.get_node('PolicyPropertiesContainer/PolicyROIContainer/PolicyROI').text = "$" + str(policy['roi'])
 		newCard.set_meta("policy", policy)
+		
+		if cost > CityState.budget:
+			newCard.get_node('CheckButton').disabled = true
 	show()
 
 func _on_apply_button_pressed():
