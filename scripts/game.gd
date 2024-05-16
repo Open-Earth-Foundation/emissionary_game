@@ -2,7 +2,7 @@ extends Node2D
 
 var current_year = 2015
 
-@onready var button: Button = %Button
+@onready var button: Button = %NextYearButton
 @onready var year_label: Label = %YearLabel
 
 func _ready() -> void:
