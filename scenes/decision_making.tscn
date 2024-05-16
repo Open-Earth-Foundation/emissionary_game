@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://b8cpjc64wjvyn" path="res://icon.svg" id="2_s0qny"]
 
 [node name="DecisionMaking" type="PopupPanel"]
-initial_position = 2
 size = Vector2i(800, 400)
 visible = true
 script = ExtResource("1_q2ajv")
@@ -24,83 +23,84 @@ grow_vertical = 2
 layout_mode = 2
 text = "Choose your climate policies"
 
-[node name="PolicyList" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 32
-
-[node name="PolicyCard" type="VBoxContainer" parent="VBoxContainer/PolicyList"]
+[node name="PolicyCard" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(250, 300)
 layout_mode = 2
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/PolicyList/PolicyCard"]
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/PolicyCard"]
 layout_mode = 2
 text = "Choose
 "
 
-[node name="PolicyTitle" type="Label" parent="VBoxContainer/PolicyList/PolicyCard"]
+[node name="PolicyTitle" type="RichTextLabel" parent="VBoxContainer/PolicyCard"]
 layout_mode = 2
 text = "Policy Title
 "
+fit_content = true
 
-[node name="PolicyImage" type="TextureRect" parent="VBoxContainer/PolicyList/PolicyCard"]
+[node name="PolicyImage" type="TextureRect" parent="VBoxContainer/PolicyCard"]
 layout_mode = 2
 texture = ExtResource("2_s0qny")
 
-[node name="PolicySectorContainer" type="HBoxContainer" parent="VBoxContainer/PolicyList/PolicyCard"]
-visible = false
+[node name="PolicySectorContainer" type="HBoxContainer" parent="VBoxContainer/PolicyCard"]
 layout_mode = 2
 
-[node name="PolicySectorLabel" type="Label" parent="VBoxContainer/PolicyList/PolicyCard/PolicySectorContainer"]
+[node name="PolicySectorLabel" type="Label" parent="VBoxContainer/PolicyCard/PolicySectorContainer"]
 layout_mode = 2
 text = "Sector:"
 
-[node name="PolicySector" type="Label" parent="VBoxContainer/PolicyList/PolicyCard/PolicySectorContainer"]
+[node name="PolicySector" type="Label" parent="VBoxContainer/PolicyCard/PolicySectorContainer"]
 layout_mode = 2
 text = "Waste"
 
-[node name="PolicyDescription" type="RichTextLabel" parent="VBoxContainer/PolicyList/PolicyCard"]
+[node name="PolicyDescription" type="RichTextLabel" parent="VBoxContainer/PolicyCard"]
 layout_mode = 2
 text = "Policy Description
 "
 fit_content = true
 
-[node name="PolicyImpactContainer" type="HBoxContainer" parent="VBoxContainer/PolicyList/PolicyCard"]
+[node name="PolicyImpactContainer" type="HBoxContainer" parent="VBoxContainer/PolicyCard"]
 layout_mode = 2
 
-[node name="ImpactLabel" type="Label" parent="VBoxContainer/PolicyList/PolicyCard/PolicyImpactContainer"]
+[node name="ImpactLabel" type="Label" parent="VBoxContainer/PolicyCard/PolicyImpactContainer"]
 layout_mode = 2
 text = "Emissions:"
 
-[node name="PolicyImpact" type="Label" parent="VBoxContainer/PolicyList/PolicyCard/PolicyImpactContainer"]
+[node name="PolicyImpact" type="Label" parent="VBoxContainer/PolicyCard/PolicyImpactContainer"]
 layout_mode = 2
 text = "200kT CO2eq"
 
-[node name="PolicyPropertiesContainer" type="HBoxContainer" parent="VBoxContainer/PolicyList/PolicyCard"]
+[node name="PolicyPropertiesContainer" type="HBoxContainer" parent="VBoxContainer/PolicyCard"]
 layout_mode = 2
 theme_override_constants/separation = 75
 
-[node name="PolicyCostContainer" type="VBoxContainer" parent="VBoxContainer/PolicyList/PolicyCard/PolicyPropertiesContainer"]
+[node name="PolicyCostContainer" type="VBoxContainer" parent="VBoxContainer/PolicyCard/PolicyPropertiesContainer"]
 layout_mode = 2
 
-[node name="CostLabel" type="Label" parent="VBoxContainer/PolicyList/PolicyCard/PolicyPropertiesContainer/PolicyCostContainer"]
+[node name="CostLabel" type="Label" parent="VBoxContainer/PolicyCard/PolicyPropertiesContainer/PolicyCostContainer"]
 layout_mode = 2
 text = "Cost:
 "
 
-[node name="PolicyCost" type="Label" parent="VBoxContainer/PolicyList/PolicyCard/PolicyPropertiesContainer/PolicyCostContainer"]
+[node name="PolicyCost" type="Label" parent="VBoxContainer/PolicyCard/PolicyPropertiesContainer/PolicyCostContainer"]
 layout_mode = 2
 text = "$100,000"
 
-[node name="PolicyROIContainer" type="VBoxContainer" parent="VBoxContainer/PolicyList/PolicyCard/PolicyPropertiesContainer"]
+[node name="PolicyROIContainer" type="VBoxContainer" parent="VBoxContainer/PolicyCard/PolicyPropertiesContainer"]
 layout_mode = 2
 
-[node name="ROILabel" type="Label" parent="VBoxContainer/PolicyList/PolicyCard/PolicyPropertiesContainer/PolicyROIContainer"]
+[node name="ROILabel" type="Label" parent="VBoxContainer/PolicyCard/PolicyPropertiesContainer/PolicyROIContainer"]
 layout_mode = 2
 text = "ROI:"
 
-[node name="PolicyROI" type="Label" parent="VBoxContainer/PolicyList/PolicyCard/PolicyPropertiesContainer/PolicyROIContainer"]
+[node name="PolicyROI" type="Label" parent="VBoxContainer/PolicyCard/PolicyPropertiesContainer/PolicyROIContainer"]
 layout_mode = 2
 text = "$60,000"
+
+[node name="PolicyList" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
 
 [node name="ApplyButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
