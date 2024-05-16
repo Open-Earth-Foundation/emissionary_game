@@ -27,7 +27,6 @@ func newPolicies(year):
 		
 		if cost > CityState.budget:
 			newCard.get_node('CheckButton').disabled = true
-	show()
 
 func _on_apply_button_pressed():
 	for policy_card in policyList.get_children():

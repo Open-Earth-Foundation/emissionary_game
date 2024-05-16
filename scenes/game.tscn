@@ -113,7 +113,6 @@ text = "Emissions"
 unique_name_in_owner = true
 initial_position = 2
 size = Vector2i(572, 276)
-visible = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="UI/EmissionsPopup"]
 offset_left = 4.0
@@ -145,9 +144,50 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 texture_normal = ExtResource("3_ghmfm")
 
+[node name="GameOverOverlay" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.165656, 0.165656, 0.165656, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/GameOverOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameOverOverlay/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="UI/GameOverOverlay/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.968627, 0, 0.294118, 1)
+theme_override_font_sizes/font_size = 80
+text = "GAME OVER"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/GameOverOverlay/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]You failed to meet your climate emissions pledge."
+fit_content = true
+
+[node name="RestartButton" type="Button" parent="UI/GameOverOverlay/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Restart"
+
 [node name="intro" parent="." instance=ExtResource("4_o48nh")]
 visible = false
 
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/NextYearButton" to="." method="_on_next_year_button_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/EmissionsButton" to="." method="_on_emissions_button_pressed"]
 [connection signal="pressed" from="UI/EmissionsPopup/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="UI/GameOverOverlay/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
