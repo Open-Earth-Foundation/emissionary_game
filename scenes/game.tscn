@@ -1,13 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch2ujipmh7p8u"]
+[gd_scene load_steps=11 format=3 uid="uid://ch2ujipmh7p8u"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ned3q"]
 [ext_resource type="Texture2D" uid="uid://b8cpjc64wjvyn" path="res://icon.svg" id="1_utdav"]
-[ext_resource type="PackedScene" uid="uid://b8yqqxef38ox0" path="res://scenes/decision_making.tscn" id="3_s4f7i"]
+[ext_resource type="Texture2D" uid="uid://dcfoj5i0jgh80" path="res://sprites/city.png" id="2_fvheh"]
+[ext_resource type="PackedScene" path="res://scenes/decision_making.tscn" id="3_s4f7i"]
+[ext_resource type="PackedScene" path="res://scenes/game_intro.tscn" id="4_o48nh"]
+
+[sub_resource type="Gradient" id="Gradient_7x8ul"]
+offsets = PackedFloat32Array(0.29918, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_prsbu"]
+gradient = SubResource("Gradient_7x8ul")
+
+[sub_resource type="Curve" id="Curve_04d8s"]
+_data = [Vector2(0, 0.391239), 0.0, 0.0, 0, 0, Vector2(0.805147, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.391239), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_11mj2"]
+curve = SubResource("Curve_04d8s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_85hww"]
+particle_flag_disable_z = true
+angle_max = 360.0
+gravity = Vector3(0, -150, 0)
+scale_min = 0.4
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_11mj2")
+color = Color(0.721569, 0.721569, 0.721569, 1)
+color_ramp = SubResource("GradientTexture1D_prsbu")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ned3q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.486275, 0.713726, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -37,10 +71,18 @@ theme_override_font_sizes/font_size = 32
 text = "Next Year"
 
 [node name="CityBackground" type="Sprite2D" parent="."]
-position = Vector2(561, 377)
-texture = ExtResource("1_utdav")
+position = Vector2(570, 354)
+texture = ExtResource("2_fvheh")
 
 [node name="DecisionMaking" parent="." instance=ExtResource("3_s4f7i")]
 visible = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(313, 224)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_85hww")
+texture = ExtResource("1_utdav")
+
+[node name="intro" parent="." instance=ExtResource("4_o48nh")]
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/NextYearButton" to="." method="_on_next_year_button_pressed"]
