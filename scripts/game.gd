@@ -14,10 +14,11 @@ func _process(delta: float) -> void:
 
 func _on_next_year_button_pressed() -> void:
 	current_year += 1
+	year_label.text = str(current_year)
 	decision_making.newPolicies(current_year)
 
 func _on_emissions_button_pressed() -> void:
-	%EmissionsPopup.show()
+	%EmissionsPopup.open()
 
 func _on_close_button_pressed() -> void:
 	%EmissionsPopup.hide()
