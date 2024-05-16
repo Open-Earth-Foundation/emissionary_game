@@ -6,7 +6,7 @@ var pledge = 0.30 # percent reduction
 @onready var button: Button = %NextYearButton
 @onready var year_label: Label = %YearLabel
 @onready var money_label: Label = %MoneyLabel
-@onready var decision_making = $DecisionMaking
+@onready var decision_making = %DecisionMaking
 @onready var roi_label: Label = %RoiLabel
 
 func _ready() -> void:
@@ -23,7 +23,7 @@ func _on_next_year_button_pressed() -> void:
 	CityState.budget += CityState.roi
 	CityState.changed.emit()
 	decision_making.newPolicies(CityState.current_year)
-	decision_making.popup()
+	decision_making.show()
 	
 	if CityState.current_year >= FINAL_YEAR:
 		%GameOverOverlay.show()
