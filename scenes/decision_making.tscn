@@ -47,6 +47,7 @@ layout_mode = 2
 texture = ExtResource("2_s0qny")
 
 [node name="PolicySectorContainer" type="HBoxContainer" parent="VBoxContainer/PolicyList/PolicyCard"]
+visible = false
 layout_mode = 2
 
 [node name="PolicySectorLabel" type="Label" parent="VBoxContainer/PolicyList/PolicyCard/PolicySectorContainer"]
