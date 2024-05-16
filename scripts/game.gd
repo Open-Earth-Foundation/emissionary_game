@@ -4,6 +4,7 @@ var current_year = 2015
 
 @onready var button: Button = %NextYearButton
 @onready var year_label: Label = %YearLabel
+@onready var decision_making = $DecisionMaking
 
 func _ready() -> void:
 	pass
@@ -13,4 +14,4 @@ func _process(delta: float) -> void:
 
 func _on_next_year_button_pressed() -> void:
 	current_year += 1
-	year_label.text = str(current_year)
+	decision_making.show()

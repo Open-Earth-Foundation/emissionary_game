@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8yqqxef38ox0"]
+
+[ext_resource type="Script" path="res://decision_making.gd" id="1_q2ajv"]
+
+[node name="DecisionMaking" type="PopupPanel"]
+size = Vector2i(600, 400)
+visible = true
+script = ExtResource("1_q2ajv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DecisionMakingTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Choose your climate policies"
+
+[node name="PolicyList" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PolicyCard" type="VBoxContainer" parent="VBoxContainer/PolicyList"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+
+[node name="PolicyTitle" type="Label" parent="VBoxContainer/PolicyList/PolicyCard"]
+layout_mode = 2
+text = "Policy Title
+"
+
+[node name="PolicyDescription" type="RichTextLabel" parent="VBoxContainer/PolicyList/PolicyCard"]
+layout_mode = 2
+text = "Policy Description
+"
+fit_content = true
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/PolicyList/PolicyCard"]
+layout_mode = 2
+text = "Choose
+"
+
+[node name="ApplyButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Apply
+"
+
+[connection signal="pressed" from="VBoxContainer/ApplyButton" to="." method="_on_apply_button_pressed"]
