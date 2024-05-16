@@ -1,4 +1,4 @@
-extends PopupPanel
+extends Control
 
 @onready var policyList = $VBoxContainer/PolicyList
 @onready var policyCard = $VBoxContainer/PolicyCard
@@ -17,6 +17,7 @@ func newPolicies(year):
 		policyList.add_child(newCard)
 		newCard.show()
 		newCard.get_node('PolicyTitle').text = policy['name']
+		newCard.get_node('PolicyImage').texture = load("res://sprites/policies/%s.jpeg" % policy['card image'])
 		newCard.get_node('PolicyDescription').text = policy['description']
 		newCard.get_node('PolicySectorContainer/PolicySector').text = policy['sector']
 		newCard.get_node('PolicyImpactContainer/PolicyImpact').text = str(policy['emission reduction']) + "t CO2eq"
