@@ -32,7 +32,7 @@ func _ready():
 	
 	# Let's add values to our functions
 	f1 = Function.new(
-		x, y, "Pressure", # This will create a function with x and y values taken by the Arrays 
+		x, y, "Emissions", # This will create a function with x and y values taken by the Arrays 
 						# we have created previously. This function will also be named "Pressure"
 						# as it contains 'pressure' values.
 						# If set, the name of a function will be used both in the Legend
@@ -66,7 +66,3 @@ func _process(delta: float):
 	f1.add_point(new_val, cos(new_val) * 20)
 	f1.remove_point(0)
 	chart.queue_redraw() # This will force the Chart to be updated
-
-
-func _on_CheckButton_pressed():
-	set_process(not is_processing())
