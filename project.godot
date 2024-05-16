@@ -10,9 +10,14 @@ config_version=5
 
 [application]
 
-config/name="ClimateGame"
+config/name="Emissionary"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+CityState="*res://scripts/city_state.gd"
 
 [rendering]
 
