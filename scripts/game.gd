@@ -18,7 +18,7 @@ func _on_next_year_button_pressed() -> void:
 	decision_making.newPolicies(current_year)
 
 func _on_emissions_button_pressed() -> void:
-	%EmissionsPopup.open()
+	%EmissionsPopup.popup()
 
 func _on_close_button_pressed() -> void:
 	%EmissionsPopup.hide()
