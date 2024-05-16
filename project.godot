@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 CityState="*res://scripts/city_state.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/easy_charts/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
