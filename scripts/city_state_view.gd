@@ -4,8 +4,6 @@ extends Control
 @onready var progress_bar_2 = $ProgressBar2
 @onready var progress_bar_3 = $ProgressBar3
 
-var max_emissions = 5000000.0
-
 func _ready():
 	state_changed()
 	CityState.changed.connect(state_changed)

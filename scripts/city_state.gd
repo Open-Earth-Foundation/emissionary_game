@@ -28,5 +28,8 @@ func reset() -> void:
 func get_initial_total_emissions() -> int:
 	return INITIAL_EMISSIONS_SECTOR1 + INITIAL_EMISSIONS_SECTOR2 + INITIAL_EMISSIONS_SECTOR3
 
+func get_progress() -> float:
+	return get_total_emissions() / float(get_initial_total_emissions())
+
 func get_total_emissions() -> int:
 	return emissions_sector1 + emissions_sector2 + emissions_sector3
