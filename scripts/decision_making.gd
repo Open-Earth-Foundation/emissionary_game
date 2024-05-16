@@ -9,29 +9,13 @@ var sector_names = {
 	"III": "Waste"
 }
 
-var available_policies = [
-	{
-		"title": "Waste to energy plant",
-		"description": "A plant for converting waste to energy",
-		"sector": "III",
-		"cost": 500000,
-		"impact": 300000,
-		"roi": 60000
-	},
-	{
-		"title": "Bus electrification program",
-		"description": "Electrify buses",
-		"sector": "II",
-		"cost": 500000,
-		"impact": 100000,
-		"roi": 50000
-	}
-]
-
 # Called when the node enters the scene tree for the first time.
 	
 func _ready():
-	var policies = choose_policies(available_policies)
+	pass
+
+func newPolicies(year):
+	var policies = choose_policies(Policies.available)
 	var seenOnce = false
 	for policy in policies:
 		var newCard
@@ -47,10 +31,7 @@ func _ready():
 		newCard.get_node('PolicyPropertiesContainer/PolicyCostContainer/PolicyCost').text = "$" + str(policy['cost'])
 		newCard.get_node('PolicyPropertiesContainer/PolicyROIContainer/PolicyROI').text = "$" + str(policy['roi'])
 		policyList.add_child(newCard)
-
-func newPolicies(year):
 	show()
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

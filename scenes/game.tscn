@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8cpjc64wjvyn" path="res://icon.svg" id="1_utdav"]
 [ext_resource type="Texture2D" uid="uid://dcfoj5i0jgh80" path="res://sprites/city.png" id="2_fvheh"]
 [ext_resource type="PackedScene" uid="uid://b8yqqxef38ox0" path="res://scenes/decision_making.tscn" id="3_s4f7i"]
-[ext_resource type="PackedScene" path="res://scenes/game_intro.tscn" id="4_o48nh"]
+[ext_resource type="PackedScene" uid="uid://djie3g0f3nyar" path="res://scenes/game_intro.tscn" id="4_o48nh"]
 
 [sub_resource type="Gradient" id="Gradient_7x8ul"]
 offsets = PackedFloat32Array(0.29918, 1)
