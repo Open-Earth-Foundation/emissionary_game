@@ -4,13 +4,14 @@ var current_year = 2015
 
 @onready var button: Button = %NextYearButton
 @onready var year_label: Label = %YearLabel
+@onready var money_label: Label = %MoneyLabel
 @onready var decision_making = $DecisionMaking
 
 func _ready() -> void:
-	pass
+	CityState.changed.connect(on_state_changed)
 
-func _process(delta: float) -> void:
-	pass
+func on_state_changed() -> void:
+	money_label.text = "$" + str(CityState.budget)
 
 func _on_next_year_button_pressed() -> void:
 	current_year += 1
