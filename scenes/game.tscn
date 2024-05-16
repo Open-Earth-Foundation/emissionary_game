@@ -185,7 +185,6 @@ theme_override_font_sizes/font_size = 64
 text = "Restart"
 
 [node name="intro" parent="." instance=ExtResource("4_o48nh")]
-visible = false
 
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/NextYearButton" to="." method="_on_next_year_button_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/EmissionsButton" to="." method="_on_emissions_button_pressed"]
