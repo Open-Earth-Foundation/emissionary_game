@@ -33,11 +33,5 @@ func _on_next_year_button_pressed() -> void:
 	if percent_reduction < (1 - pledge):
 		%WinOverlay.show()
 
-func _on_emissions_button_pressed() -> void:
-	%EmissionsPopup.popup()
-
-func _on_close_button_pressed() -> void:
-	%EmissionsPopup.hide()
-
 func _on_restart_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
