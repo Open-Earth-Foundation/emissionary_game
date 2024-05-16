@@ -23,6 +23,10 @@ CityState="*res://scripts/city_state.gd"
 
 enabled=PackedStringArray("res://addons/easy_charts/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://fonts/Brice-Regular.otf"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
