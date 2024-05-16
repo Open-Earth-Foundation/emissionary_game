@@ -47,6 +47,7 @@ func _ready():
 		newCard.get_node('PolicyImpactContainer/PolicyImpact').text = str(policy['impact']) + "t CO2eq"
 		newCard.get_node('PolicyPropertiesContainer/PolicyCostContainer/PolicyCost').text = "$" + str(policy['cost'])
 		newCard.get_node('PolicyPropertiesContainer/PolicyROIContainer/PolicyROI').text = "$" + str(policy['roi'])
+		newCard.set_meta("policy", policy)
 
 func newPolicies(year):
 	show()
@@ -57,7 +58,24 @@ func _process(delta):
 	pass
 
 func _on_apply_button_pressed():
+	for policy_card in policyList.get_children():
+		var is_selected: bool = policy_card.get_node("CheckButton").button_pressed
+		if is_selected:
+			apply_policy(policy_card.get_meta("policy"))
+	CityState.changed.emit()
 	hide()
-	
+
 func choose_policies(ap):
 	return ap
+
+func apply_policy(policy: Dictionary) -> void:
+	match policy.sector:
+		"I":
+			CityState.emissions_sector1 -= policy.impact
+		"II":
+			CityState.emissions_sector2 -= policy.impact
+		"III":
+			CityState.emissions_sector3 -= policy.impact
+	CityState.roi += policy.roi
+	CityState.budget -= policy.cost
+	CityState.previous_policies.push_back(policy)

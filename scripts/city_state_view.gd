@@ -1,8 +1,8 @@
-extends PopupPanel
+extends Control
 
-@onready var progress_bar = $VBoxContainer/ProgressBar
-@onready var progress_bar_2 = $VBoxContainer/ProgressBar2
-@onready var progress_bar_3 = $VBoxContainer/ProgressBar3
+@onready var progress_bar = $ProgressBar
+@onready var progress_bar_2 = $ProgressBar2
+@onready var progress_bar_3 = $ProgressBar3
 
 var max_emissions = 500 
 

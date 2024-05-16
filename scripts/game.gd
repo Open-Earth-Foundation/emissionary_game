@@ -15,3 +15,9 @@ func _process(delta: float) -> void:
 func _on_next_year_button_pressed() -> void:
 	current_year += 1
 	decision_making.newPolicies(current_year)
+
+func _on_emissions_button_pressed() -> void:
+	%EmissionsPopup.show()
+
+func _on_close_button_pressed() -> void:
+	%EmissionsPopup.hide()
