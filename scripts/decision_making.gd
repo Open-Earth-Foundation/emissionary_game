@@ -37,6 +37,7 @@ func _ready():
 		var newCard
 		if seenOnce:
 			newCard = policyCard.duplicate()
+			policyList.add_child(newCard)
 		else:
 			newCard = policyCard
 			seenOnce = true
@@ -46,7 +47,6 @@ func _ready():
 		newCard.get_node('PolicyImpactContainer/PolicyImpact').text = str(policy['impact']) + "t CO2eq"
 		newCard.get_node('PolicyPropertiesContainer/PolicyCostContainer/PolicyCost').text = "$" + str(policy['cost'])
 		newCard.get_node('PolicyPropertiesContainer/PolicyROIContainer/PolicyROI').text = "$" + str(policy['roi'])
-		policyList.add_child(newCard)
 
 func newPolicies(year):
 	show()
