@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8cpjc64wjvyn" path="res://icon.svg" id="2_s0qny"]
 
 [node name="DecisionMaking" type="PopupPanel"]
+initial_position = 2
 size = Vector2i(800, 600)
 visible = true
 script = ExtResource("1_q2ajv")
@@ -25,6 +26,7 @@ text = "Choose your climate policies"
 
 [node name="PolicyList" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 32
 
 [node name="PolicyCard" type="VBoxContainer" parent="VBoxContainer/PolicyList"]
 custom_minimum_size = Vector2(250, 300)
