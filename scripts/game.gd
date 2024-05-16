@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 
 func _on_next_year_button_pressed() -> void:
 	current_year += 1
-	decision_making.show()
+	decision_making.newPolicies(current_year)
