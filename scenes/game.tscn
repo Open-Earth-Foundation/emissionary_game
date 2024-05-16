@@ -1,13 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://ch2ujipmh7p8u"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ned3q"]
-[ext_resource type="Texture2D" uid="uid://b8cpjc64wjvyn" path="res://icon.svg" id="1_utdav"]
+[ext_resource type="Texture2D" uid="uid://dcfoj5i0jgh80" path="res://sprites/city.png" id="2_fvheh"]
 [ext_resource type="PackedScene" uid="uid://b8yqqxef38ox0" path="res://decision_making.tscn" id="3_s4f7i"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ned3q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.486275, 0.713726, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -37,8 +46,8 @@ theme_override_font_sizes/font_size = 32
 text = "Next Year"
 
 [node name="CityBackground" type="Sprite2D" parent="."]
-position = Vector2(561, 377)
-texture = ExtResource("1_utdav")
+position = Vector2(570, 354)
+texture = ExtResource("2_fvheh")
 
 [node name="DecisionMaking" parent="." instance=ExtResource("3_s4f7i")]
 visible = false
