@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ned3q"]
 [ext_resource type="Texture2D" uid="uid://b8cpjc64wjvyn" path="res://icon.svg" id="1_utdav"]
-[ext_resource type="Texture2D" uid="uid://dcfoj5i0jgh80" path="res://sprites/city.png" id="2_fvheh"]
+[ext_resource type="Texture2D" uid="uid://cmocbnsmffcog" path="res://sprites/states/STATE 1.jpg" id="2_03yvs"]
 [ext_resource type="PackedScene" uid="uid://b8yqqxef38ox0" path="res://scenes/decision_making.tscn" id="3_s4f7i"]
 [ext_resource type="PackedScene" uid="uid://djie3g0f3nyar" path="res://scenes/game_intro.tscn" id="4_o48nh"]
 [ext_resource type="PackedScene" uid="uid://bgauarulukili" path="res://scenes/city_state.tscn" id="6_4fc6r"]
@@ -44,11 +44,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.247059, 0.486275, 0.713726, 1)
 
-[node name="CityBackground" type="Sprite2D" parent="."]
-position = Vector2(570, 354)
-texture = ExtResource("2_fvheh")
+[node name="CityBackground" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_03yvs")
+expand_mode = 3
+stretch_mode = 6
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 position = Vector2(313, 224)
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_85hww")

@@ -48,6 +48,6 @@ func apply_policy(policy: Dictionary) -> void:
 			CityState.emissions_sector2 -= int(policy["emission reduction"])
 		"Waste":
 			CityState.emissions_sector3 -= int(policy["emission reduction"])
-	CityState.roi += int(policy.roi)
+	CityState.roi += int(policy.roi) * 2
 	CityState.budget -= int(policy.cost)
 	CityState.previous_policies.push_back(policy)
