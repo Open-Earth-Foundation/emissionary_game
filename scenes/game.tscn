@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch2ujipmh7p8u"]
+[gd_scene load_steps=5 format=3 uid="uid://ch2ujipmh7p8u"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ned3q"]
 [ext_resource type="Texture2D" uid="uid://b8cpjc64wjvyn" path="res://icon.svg" id="1_utdav"]
 [ext_resource type="PackedScene" uid="uid://b8yqqxef38ox0" path="res://scenes/decision_making.tscn" id="3_s4f7i"]
+[ext_resource type="PackedScene" uid="uid://imlnaw4wybx4" path="res://scenes/total_progress.tscn" id="4_uo403"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ned3q")
@@ -42,5 +43,7 @@ texture = ExtResource("1_utdav")
 
 [node name="DecisionMaking" parent="." instance=ExtResource("3_s4f7i")]
 visible = false
+
+[node name="TotalProgress" parent="." instance=ExtResource("4_uo403")]
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/NextYearButton" to="." method="_on_next_year_button_pressed"]
