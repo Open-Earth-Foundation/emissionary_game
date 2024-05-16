@@ -117,4 +117,4 @@ theme_override_font_sizes/font_size = 32
 text = "Apply
 "
 
-[connection signal="pressed" from="VBoxContainer/ApplyButton" to="Background" method="_on_apply_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ApplyButton" to="." method="_on_apply_button_pressed"]
